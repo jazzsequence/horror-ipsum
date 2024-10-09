@@ -1,0 +1,12 @@
+.horror-lorem-ipsum-button {
+	background-color: #d9534f;
+	color: #ffffff;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.horror-lorem-ipsum-button:hover {
+	background-color: #c9302c;
+}
