@@ -22,10 +22,14 @@ registerBlockType('horror-lorem-ipsum/random-paragraph', {
             setAttributes({ content: newContent });
         };
 
-        const generateRandomText = () => {
-            const randomIndex = Math.floor(Math.random() * horrorTexts.length);
-            setAttributes({ content: horrorTexts[randomIndex] });
-        };
+		const generateRandomText = () => {
+			let randomParagraph = '';
+			for (let i = 0; i < 4; i++) { // Generate 4 sentences to form a paragraph
+				const randomIndex = Math.floor(Math.random() * horrorTexts.length);
+				randomParagraph += horrorTexts[randomIndex] + ' ';
+			}
+			setAttributes({ content: randomParagraph.trim() });
+		};
 
         return wp.element.createElement(
             'div',
