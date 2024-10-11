@@ -1,4 +1,5 @@
 # Horror Ipsum
+![GitHub Release](https://img.shields.io/github/v/release/jazzsequence/horror-ipsum)
 
 A WordPress plugin that generates horror-themed placeholder text for your site in a Gutenberg block.
 
