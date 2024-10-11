@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Horror Lorem Ipsum Generator
+ * Plugin Name: Horror Ipsum Generator
  * Description: A horror-themed Lorem Ipsum generator with a Gutenberg block for adding spooky filler text.
  * Version: 1.0.0
  * Author: Chris
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function horror_ipsum_texts() {
 	$ipsum = file_get_contents( plugin_dir_path( __FILE__ ) . 'assets/json/quotes.json' );
-	return json_decode( $ipsum, true );
+	return apply_filters( 'horror_ipsum_text', json_decode( $ipsum, true ) );
 }
 
 // Register the block script.
