@@ -4,8 +4,8 @@ const { useState } = wp.element;
 
 const horrorTexts = horrorLipsumData.texts;
 
-registerBlockType('horror-lorem-ipsum/random-paragraph', {
-    title: 'Horror Lorem Ipsum',
+registerBlockType('horror-ipsum/random-paragraph', {
+    title: 'Horror Ipsum',
     icon: 'admin-comments',
     category: 'widgets',
     attributes: {
@@ -47,9 +47,9 @@ registerBlockType('horror-lorem-ipsum/random-paragraph', {
                 'button',
                 {
                     onClick: generateRandomText,
-                    className: 'horror-lorem-ipsum-button',
+                    className: 'horror-ipsum-button',
                 },
-                'Generate Horror Text'
+                'Generate Horror Ipsum'
             )
         );
     },
