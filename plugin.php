@@ -11,20 +11,9 @@ if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-function horror_lorem_ipsum_texts()
-{
-	return [
-		'The shadows lengthened as the cold wind whispered secrets of forgotten souls.',
-		'A scream echoed in the darkness, leaving only a chilling silence in its wake.',
-		'Blood-red moonlight bathed the haunted woods, revealing eyes watching from the gloom.',
-		'The old mansion creaked with every step, as if alive and breathing in the darkness.',
-		'A sinister laughter rang out from nowhere, a promise of terror yet to come.',
-		'In the fog, figures moved slowly, their faces blank and eyes empty.',
-		'The chill in the air deepened, the whispering voices drawing nearer.',
-		'Footsteps followed her, though she walked alone on the abandoned road.',
-		'The ancient graveyard came alive under the lightning\'s flash, casting skeletal shadows.',
-		'A door slammed shut upstairs, though the house had been empty for years.'
-	];
+function horror_ipsum_texts() {
+	$ipsum = file_get_contents( plugin_dir_path( __FILE__ ) . 'assets/json/quotes.json' );
+	return json_decode( $ipsum, true );
 }
 
 // Register the block script.
