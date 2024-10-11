@@ -2,9 +2,14 @@
 
 /**
  * Plugin Name: Horror Ipsum Generator
- * Description: A horror-themed Lorem Ipsum generator with a Gutenberg block for adding spooky filler text.
- * Version: 1.0.0
- * Author: Chris
+ * Description: A horror-themed Lorem Ipsum generator inside a Gutenberg block for adding spooky filler text.
+ * Version: 1.0.1
+ * Author: Chris Reynolds
+ * Author URI: https://www.chrisreynolds.io
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
+ * GitHub Plugin URI: jazzsequence/horror-ipsum
+ * Primary Branch: main
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
