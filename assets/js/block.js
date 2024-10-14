@@ -1,6 +1,5 @@
 const { registerBlockType } = wp.blocks;
-const { useBlockProps, RichText } = wp.blockEditor;
-const { useState } = wp.element;
+const { RichText } = wp.blockEditor;
 
 const horrorTexts = horrorLipsumData.texts;
 
@@ -16,47 +15,42 @@ registerBlockType('horror-ipsum/random-paragraph', {
         },
     },
     edit: (props) => {
-        const blockProps = useBlockProps();
-        const { attributes: { content }, setAttributes } = props;
-        const [generated, setGenerated] = useState(false);
+        const { attributes: { content }, setAttributes, clientId } = props;
 
-        const onChangeContent = (newContent) => {
-            setAttributes({ content: newContent });
-        };
-
-        const generateRandomText = () => {
+        // Generate the random paragraph when the block is first created
+        if (!content) {
             let randomParagraph = '';
             for (let i = 0; i < 4; i++) {
                 const randomIndex = Math.floor(Math.random() * horrorTexts.length);
                 randomParagraph += horrorTexts[randomIndex] + ' ';
             }
             setAttributes({ content: randomParagraph.trim() });
-            setGenerated(true);
-        };
+
+            // Automatically replace this block with a core paragraph block
+            const { dispatch, select } = wp.data;
+            const block = wp.blocks.createBlock('core/paragraph', { content: randomParagraph.trim() });
+
+            dispatch('core/block-editor').replaceBlock(clientId, block);
+
+            // Delay to ensure the block is replaced before selecting the new one
+            setTimeout(() => {
+                const newBlockId = select('core/block-editor').getBlocks().find(b => b.attributes.content === randomParagraph.trim()).clientId;
+                dispatch('core/block-editor').selectBlock(newBlockId);
+            }, 50);
+        }
 
         return wp.element.createElement(
-            'div',
-            blockProps,
-            wp.element.createElement(RichText, {
+            RichText,
+            {
                 tagName: 'p',
                 value: content,
-                onChange: onChangeContent,
-                placeholder: 'Click the button to generate a random horror paragraph...',
-            }),
-            !generated && wp.element.createElement(
-                'button',
-                {
-                    onClick: generateRandomText,
-                    className: 'horror-ipsum-button',
-                },
-                'Generate Horror Ipsum'
-            )
+                onChange: (newContent) => setAttributes({ content: newContent }),
+                placeholder: 'Horror Ipsum content...',
+            }
         );
     },
     save: (props) => {
-        const blockProps = useBlockProps.save();
         return wp.element.createElement(RichText.Content, {
-            ...blockProps,
             tagName: 'p',
             value: props.attributes.content,
         });
