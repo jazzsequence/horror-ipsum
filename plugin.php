@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Horror Ipsum Generator
  * Description: A horror-themed Lorem Ipsum generator inside a Gutenberg block for adding spooky filler text.
- * Version: 1.0.1
+ * Version: 1.0.5
  * Author: Chris Reynolds
  * Author URI: https://www.chrisreynolds.io
  * License: MIT
