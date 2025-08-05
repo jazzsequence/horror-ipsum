@@ -3,13 +3,14 @@
 /**
  * Plugin Name: Horror Ipsum Generator
  * Description: A horror-themed Lorem Ipsum generator inside a Gutenberg block for adding spooky filler text.
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: Chris Reynolds
  * Author URI: https://www.chrisreynolds.io
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * GitHub Plugin URI: jazzsequence/horror-ipsum
  * Primary Branch: main
+ * Plugin ID: did:plc:ge7m5b2k5ypcavkiblmw5gmz
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
